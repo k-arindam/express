@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "684690494286",
+    "project_id": "proj-express",
+    "storage_bucket": "proj-express.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:684690494286:android:11e64383ae7985a6d2841f",
+        "android_client_info": {
+          "package_name": "com.karindam.express"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd_n1Lf1omhzEdovcvWk0NmK0AwJ5tL5Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

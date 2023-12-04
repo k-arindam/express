@@ -1,5 +1,7 @@
+import 'package:express/firebase_options.dart';
 import 'package:express/src/core/routes/app_routes.dart';
 import 'package:express/src/core/services/app_bindings.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -9,6 +11,10 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await GetStorage.init();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   final orientations = [
     DeviceOrientation.portraitUp,
