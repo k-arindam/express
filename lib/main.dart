@@ -1,4 +1,5 @@
 import 'package:express/firebase_options.dart';
+import 'package:express/src/common/constants/constants.dart';
 import 'package:express/src/core/routes/app_routes.dart';
 import 'package:express/src/core/services/app_bindings.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -30,16 +31,34 @@ class ExpressApp extends StatefulWidget {
 
   @override
   State<ExpressApp> createState() => _ExpressAppState();
+
+  static void restartApp(BuildContext context) =>
+      context.findAncestorStateOfType<_ExpressAppState>()?.restart();
 }
 
 class _ExpressAppState extends State<ExpressApp> {
+  Key _sessionKey = UniqueKey();
+
+  void restart() => setState(() {
+        _sessionKey = UniqueKey();
+      });
+
+  final _theme = ThemeData(
+    fontFamily: "Tilt_Neon",
+    scaffoldBackgroundColor: Constants.kWhite,
+  );
+
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialBinding: AppBindings(),
-      initialRoute: AppRoutes.home,
-      onGenerateRoute: AppRoutes.generateRoute,
+    return KeyedSubtree(
+      key: _sessionKey,
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: _theme,
+        initialBinding: AppBindings(),
+        initialRoute: AppRoutes.home,
+        onGenerateRoute: AppRoutes.generateRoute,
+      ),
     );
   }
 }
