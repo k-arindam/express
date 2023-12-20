@@ -12,7 +12,7 @@ import 'package:get_storage/get_storage.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  const geminiKey = "AIzaSyCHyRBAl5Akd2W6xRUmgkA3FZBwkxOaLeY";
+  const geminiKey = "";
   final orientations = [
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
