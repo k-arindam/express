@@ -39,6 +39,11 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
   firebase_core: ^2.24.0
   firebase_auth: ^4.15.0
+  fl_gemini_client:
+    git:
+      url: https://github.com/k-arindam/fl_gemini.git
+      path: fl_gemini_client
+      ref: main
   expandable_deck:
     git:
       url: https://github.com/k-arindam/expandable_deck.git

@@ -178,6 +178,51 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.9.0"
+  fl_gemini_android:
+    dependency: transitive
+    description:
+      path: fl_gemini_android
+      ref: HEAD
+      resolved-ref: cd86276bea11aa0c8ca6e3cc1282341dfa55b161
+      url: "https://github.com/k-arindam/fl_gemini.git"
+    source: git
+    version: "0.0.1"
+  fl_gemini_client:
+    dependency: "direct main"
+    description:
+      path: fl_gemini_client
+      ref: main
+      resolved-ref: "1ecbd7f8ca3423520baaa8c395a2fb4677be70ab"
+      url: "https://github.com/k-arindam/fl_gemini.git"
+    source: git
+    version: "0.0.1"
+  fl_gemini_ios:
+    dependency: transitive
+    description:
+      path: fl_gemini_ios
+      ref: HEAD
+      resolved-ref: cd86276bea11aa0c8ca6e3cc1282341dfa55b161
+      url: "https://github.com/k-arindam/fl_gemini.git"
+    source: git
+    version: "0.0.1"
+  fl_gemini_platform_interface:
+    dependency: transitive
+    description:
+      path: fl_gemini_platform_interface
+      ref: HEAD
+      resolved-ref: cd86276bea11aa0c8ca6e3cc1282341dfa55b161
+      url: "https://github.com/k-arindam/fl_gemini.git"
+    source: git
+    version: "0.0.1"
+  fl_gemini_web:
+    dependency: transitive
+    description:
+      path: fl_gemini_web
+      ref: HEAD
+      resolved-ref: cd86276bea11aa0c8ca6e3cc1282341dfa55b161
+      url: "https://github.com/k-arindam/fl_gemini.git"
+    source: git
+    version: "0.0.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -503,5 +548,5 @@ packages:
     source: hosted
     version: "3.1.2"
 sdks:
-  dart: ">=3.2.2 <4.0.0"
+  dart: ">=3.2.3 <4.0.0"
   flutter: ">=3.13.0"

@@ -3,6 +3,7 @@ import 'package:express/src/common/constants/constants.dart';
 import 'package:express/src/core/routes/app_routes.dart';
 import 'package:express/src/core/services/app_bindings.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:fl_gemini_client/fl_gemini_client.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -11,16 +12,17 @@ import 'package:get_storage/get_storage.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await GetStorage.init();
-
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-
+  const geminiKey = "AIzaSyCHyRBAl5Akd2W6xRUmgkA3FZBwkxOaLeY";
   final orientations = [
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ];
+
+  await GetStorage.init();
+  await FLGeminiClient.init(key: geminiKey);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   SystemChrome.setPreferredOrientations(orientations)
       .then((_) => runApp(const ExpressApp()));

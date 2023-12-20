@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 abstract class Constants {
   static const String kAppName = "express";
 
+  // API Paths
+  static const String kBaseUrl = "";
+
   // Controller Tags
   static const String kAuthController = "express-auth-controller";
+  static const String kChatController = "express-chat-controller";
 
   // Colors
   static const Color kBlack = Color.fromRGBO(21, 21, 23, 1.0);
