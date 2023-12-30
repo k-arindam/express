@@ -12,14 +12,13 @@ import 'package:get_storage/get_storage.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  const geminiKey = "";
   final orientations = [
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ];
 
   await GetStorage.init();
-  await FLGeminiClient.init(key: geminiKey);
+  await FLGeminiClient.init(key: Constants.kGeminiKey);
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

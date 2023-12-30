@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 abstract class Constants {
   static const String kAppName = "express";
+  static const String kGeminiKey = "";
 
   // API Paths
   static const String kBaseUrl = "";
