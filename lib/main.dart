@@ -3,7 +3,9 @@ import 'package:express/src/common/constants/constants.dart';
 import 'package:express/src/core/routes/app_routes.dart';
 import 'package:express/src/core/services/app_bindings.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:fl_gemini_client/fl_gemini_client.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -22,6 +24,12 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
+  };
 
   SystemChrome.setPreferredOrientations(orientations)
       .then((_) => runApp(const ExpressApp()));
