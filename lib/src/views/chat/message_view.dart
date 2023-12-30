@@ -85,9 +85,9 @@ class _MessageViewState extends State<MessageView> {
                     margin: const EdgeInsets.all(8.0),
                     padding: const EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
-                        color: message.entity != MessageEntity.user
-                            ? Constants.kOrange
-                            : Constants.kGreen,
+                        color: message.entity == MessageEntity.user
+                            ? Constants.kLightGreen
+                            : Constants.kDarkGreen,
                         borderRadius: BorderRadius.circular(8.0)),
                     child: Text(
                       message.parts.first,

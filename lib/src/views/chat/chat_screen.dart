@@ -4,6 +4,7 @@ import 'package:express/src/core/controllers/chat_controller.dart';
 import 'package:express/src/views/chat/message_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -16,12 +17,14 @@ class _ChatScreenState extends State<ChatScreen> {
   final _chatController =
       Get.find<ChatController>(tag: Constants.kChatController);
   final _textController = TextEditingController();
-  final _bottomBarRadius = const Radius.circular(38.0);
   final _formKey = GlobalKey<FormState>();
+  final _picker = ImagePicker();
+
+  XFile? img;
 
   Widget _buildBottomBar() {
     final border = OutlineInputBorder(
-      borderSide: const BorderSide(color: Constants.kWhite, width: 1.5),
+      borderSide: const BorderSide(color: Constants.kBlack, width: 1.5),
       borderRadius: BorderRadius.circular(12.0),
     );
 
@@ -32,7 +35,7 @@ class _ChatScreenState extends State<ChatScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       margin: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
-        color: Constants.kDarkGreen,
+        color: Constants.kGrey,
         borderRadius: BorderRadius.circular(38.0),
       ),
       child: Row(
@@ -42,7 +45,7 @@ class _ChatScreenState extends State<ChatScreen> {
             child: TextFormField(
               controller: _textController,
               style: const TextStyle(
-                color: Constants.kWhite,
+                color: Constants.kDarkGreen,
                 fontWeight: FontWeight.w600,
               ),
               decoration: InputDecoration(
@@ -50,24 +53,27 @@ class _ChatScreenState extends State<ChatScreen> {
                 enabledBorder: border,
                 focusedBorder: border,
               ),
-              cursorColor: Constants.kWhite,
+              cursorColor: Constants.kBlack,
             ),
           ),
           CircleIconButton(
             icon: Icons.image_rounded,
-            backgroundColor: Constants.kWhite,
-            iconColor: Constants.kDarkGreen,
+            backgroundColor: Constants.kBlack,
+            iconColor: Constants.kWhiteGreen,
             margin: const EdgeInsets.only(left: 8.0),
-            onTap: () {},
+            onTap: () async {
+              img = await _picker.pickImage(source: ImageSource.gallery);
+            },
           ),
           // const SizedBox(width: 8.0),
           CircleIconButton(
             icon: Icons.send_rounded,
-            backgroundColor: Constants.kWhite,
-            iconColor: Constants.kDarkGreen,
+            backgroundColor: Constants.kBlack,
+            iconColor: Constants.kWhiteGreen,
             margin: const EdgeInsets.only(left: 8.0),
-            onTap: () {
-              _chatController.sendMessage(_textController.text);
+            onTap: () async {
+              _chatController.sendMessage(_textController.text,
+                  img: await img?.readAsBytes());
               _textController.text = "";
             },
           ),
